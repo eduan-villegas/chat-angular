@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   loadLocalStorage(){
-    if (localStorage.get("token")) {
+    if (localStorage.getItem("token") && localStorage.getItem("user")) {
       this.token=localStorage.getItem("token");
       this.user=JSON.parse(localStorage.getItem("user") ?? '');
     } else {
@@ -37,7 +37,7 @@ export class AuthService {
         }
         catchError((error) => {
           console.log(error);
-          return of(undefined);
+          return of(error);
         });
       })
     );
@@ -46,7 +46,7 @@ export class AuthService {
   storeLocalStorageToken(auth: any) {
     if (auth.access_token) {
       localStorage.setItem("token",auth.access_token);
-      localStorage.setItem("user",auth.user)
+      localStorage.setItem("user",JSON.stringify(auth.user))
       this.token=auth.access_token;
       this.user=auth.user;
       return true;
@@ -68,5 +68,8 @@ export class AuthService {
     this.router.navigate(["auth/login"],{queryParams:{}})
   }
 
+  isLoggin(){
+    return localStorage.getItem("token")!==null;
+  }
 
 }
