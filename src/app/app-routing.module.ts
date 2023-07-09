@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'/chat',
+    redirectTo:'/chat/chat-content',
     pathMatch:'full'
   },
   {

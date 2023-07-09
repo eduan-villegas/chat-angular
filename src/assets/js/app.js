@@ -4,7 +4,7 @@ $(document).ready(function () {
         e.preventDefault()
         $(this).tab('show');
     })
-    
+
     // Layout Click Events
     $('#chats-tab').on('click', function (e) {
         e.preventDefault()
@@ -64,7 +64,7 @@ $(document).ready(function () {
           preload: [0,1] // Will preload 0 - before current, and 1 after the current image
         }
     });
-      
+
     //Chat Dropdown Filter
     $('[data-chat-filter]').on('click', function () {
         let selectedOption = $(this).data('select');
@@ -80,7 +80,7 @@ $(document).ready(function () {
           $('[data-chat-list] li.' + selectedOption).show();
         }
     });
-    
+
     //Call Dropdown Filter
     $('[data-call-filter]').on('click', function () {
         let selectedOption = $(this).data('select');
@@ -112,7 +112,7 @@ $(document).ready(function () {
         $(this).next('.custom-file-label').html(event.target.files[0].name);
     })
 
-    
+
     // SVG File Inject
     SVGInject(document.getElementsByClassName('injectable'));
 
@@ -155,7 +155,7 @@ $(document).ready(function () {
         $("#appNavTab .nav-link").removeClass("active");
     })
 
-    
+
     // Todo task done
     $('.todo-item input[type="checkbox"]').click(function () {
         if ($(this).is(":checked")) {
@@ -167,7 +167,7 @@ $(document).ready(function () {
 
     // Responsive media query to remove appbar in smaller screen on initial load & resize
     function checkSize(){
-        if ($(window).width() <= 1200){	
+        if ($(window).width() <= 1200){
             $(".appbar").addClass("appbar-hidden");
         } else{
             $(".appbar").removeClass("appbar-hidden");
@@ -178,7 +178,7 @@ $(document).ready(function () {
 
 
     // Emojione Area
-    $("#messageInput").emojioneArea();
+    //$("#messageInput").emojioneArea();
 
 });
 
